@@ -6,6 +6,7 @@ import * as ejs from 'ejs';
 import * as ejsEngine from 'ejs-mate';
 import { Routes } from "./routes/crmRoutes";
 import { OrderRoutes } from "./routes/orderRoutes";
+import { ItemRoutes } from "./routes/itemRoutes";
 import * as mongoose from "mongoose";
 
 class App {
@@ -13,12 +14,14 @@ class App {
     public app: express.Application;
     public routePrv: Routes = new Routes();
     public orderRt: OrderRoutes = new OrderRoutes();
+    public itemRt: ItemRoutes = new ItemRoutes();
     public mongoUrl: string = 'mongodb://localhost/CRMdb';
     constructor() {
         this.app = express();
         this.config();
         this.routePrv.routes(this.app);
         this.orderRt.routes(this.app);
+        this.itemRt.routes(this.app);
         this.mongoSetup();
     }
 

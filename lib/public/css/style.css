@@ -45,3 +45,7 @@ body {
 .price{
     width: 100%;
 }
+
+.search-panel{
+    height: 76px;
+}
