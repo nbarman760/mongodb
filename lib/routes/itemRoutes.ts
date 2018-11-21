@@ -8,6 +8,7 @@ export class ItemRoutes {
 
         app.route('/item').get(this.itemController.getItems)
         app.route('/item/add').get(this.itemController.addItem);
-
+        app.route('/item/store').post(this.itemController.store);
+        app.route('/item/getitems').get(this.itemController.getAllItem);
     }
 }

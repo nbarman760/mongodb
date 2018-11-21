@@ -19,6 +19,10 @@ export const ItemSchema = new Schema({
     description:{
       type: String
     },
+    thumbnail:{
+        type: String,
+        default: 'https://img.freepik.com/free-vector/medicine-elements-background_23-2147772710.jpg?size=338&ext=jpg'
+    },
     created_date: {
         type: Date,
         default: Date.now
