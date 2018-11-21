@@ -49,3 +49,9 @@ body {
 .search-panel{
     height: 76px;
 }
+body{
+
+}
+tbody{
+    padding: 5px;
+}

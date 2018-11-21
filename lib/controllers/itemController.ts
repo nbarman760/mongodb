@@ -20,15 +20,29 @@ export class ItemController {
     public addItem(req: Request, res: Response) {
         res.render('item/create');
     }
-    async store(req: Request, res: Response){
-        let params = { name: req.body.name, amt: req.body.amt, status: req.body.status, qty: req.body.qty, description:req.body.description       };
+
+    public store(req: Request, res: Response){
+        let params = { name: req.body.name, amt: req.body.amt, status: req.body.status, qty: req.body.qty, description:req.body.description, thumbnail: ''  };
         let newItem = new Item(params);
 
         newItem.save((err, item) => {
             if (err) {
                 res.send(err);
             }
-            res.redirect('/item');
+            Item.find({}, (err, items)=>{
+                if(err){
+                    res.json(err);
+                }
+
+                fs.writeFile('./data/allitems.json', JSON.stringify(items), function(err) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    console.log('read file');
+                    res.redirect('/item');
+                });
+            });
+
         });
 
     }
