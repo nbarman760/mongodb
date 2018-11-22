@@ -22,7 +22,7 @@ export class ItemController {
     }
 
     public store(req: Request, res: Response){
-        let params = { name: req.body.name, amt: req.body.amt, status: req.body.status, qty: req.body.qty, description:req.body.description, thumbnail: ''  };
+        let params = { name: req.body.name, amt: req.body.amt, status: req.body.status, qty: req.body.qty, description:req.body.description  };
         let newItem = new Item(params);
 
         newItem.save((err, item) => {

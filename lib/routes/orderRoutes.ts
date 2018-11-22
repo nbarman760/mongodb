@@ -7,6 +7,7 @@ export class OrderRoutes {
 
         app.route('/order').get(this.orderController.getOrders)
         app.route('/order/add').get(this.orderController.addOrder);
+        app.route('/order/store').post(this.orderController.store);
 
     }
 }

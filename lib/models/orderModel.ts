@@ -5,6 +5,10 @@ export const OrderSchema = new Schema({
         type: String,
         required: 'Enter a first name'
     },
+    phone:{
+        type: Number,
+        required: 'Phone number required'
+    },
     orderAmt: {
         type: Number,
         required: 'Enter a last name'
@@ -16,17 +20,16 @@ export const OrderSchema = new Schema({
     status:{
         type: String
     },
-    orderDetails:{
-        item:{
-            type: Object
-        },
-        orderQty: {
-            type: Number
-        },
-        deliveredQty:{
-            type: Number
+    orderDetails:[
+        {
+            product_id: {
+                type: String
+            },
+            orderQty: {
+                type: Number
+            }
         }
-    },
+      ],
     created_date: {
         type: Date,
         default: Date.now

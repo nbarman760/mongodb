@@ -55,3 +55,7 @@ body{
 tbody{
     padding: 5px;
 }
+
+.mybtn{
+    border-radius: 0px;
+}
